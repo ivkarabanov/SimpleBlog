@@ -1,0 +1,17 @@
+﻿@model IList<JustBlog.Core.Objects.Tag>
+
+<div>
+    <h3>Тэги</h3>
+
+    @if (Model.Count > 0)
+    {
+        foreach (var tag in Model)
+        {
+            @Html.TagLink(tag)
+        }
+    }
+    else
+    {
+        <p>Не найдено ни одного тэга!</p>
+    }
+</div>

@@ -1,0 +1,12 @@
+﻿<h3>Поиск</h3>
+@using (Html.BeginForm(
+                "Search",           // action
+                "Blog",             // controller
+                FormMethod.Get,     // method
+                new { id = "search-form" })) // html attributes
+{
+    <p>
+        @Html.TextBox("search", null, new { @class = "search" })
+        <input value="Search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="@Url.Content("~/Content/themes/simple/search.png")" alt="Search" title="Search" />
+    </p>
+}

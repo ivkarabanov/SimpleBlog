@@ -1,0 +1,59 @@
+﻿@using System.Configuration
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Название блога</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/themes/simple/style.css")" title="style" />
+  <!--  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.min.js"></script>
+    <script src="@Url.Content("~/scripts/app.js")"></script>-->
+    @Styles.Render("~/css")
+    @Scripts.Render("~/jquery", "~/jqueryval", "~/jqueryunobtrusiveval", "~/js")
+    <meta name="keywords" content="@(ViewBag.Keywords ?? ConfigurationManager.AppSettings["MetaKeywords"])" />
+    <meta name="description" content="@(ViewBag.Description ?? ConfigurationManager.AppSettings["MetaDescription"])" />
+    <meta name="author" content="@ConfigurationManager.AppSettings["Author"]" />
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <!-- class="logo_colour", allows you to change the colour of the text -->
+                    <h1><a href="/">Название <span class="logo_colour">блога</span></a></h1>
+                    <h2>Пока пустой блог</h2>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                    <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                    <li>@Html.ActionLink("Статьи", "Posts")</li>
+                    <li>@Html.ActionLink("Контакты", "Contact")</li>
+                    <li>@Html.ActionLink("Обо мне", "AboutMe")</li>
+                </ul>
+            </div>
+        </div>
+        <div id="site_content">
+            @Html.Action("Sidebars")
+            <div id="content">
+                <h1>Добро пожаловать!</h1>
+                @RenderBody()
+            </div>
+        </div>
+        <div id="content_footer"></div>
+        <div id="footer">
+            Copyright &copy; colour_blue | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">design from HTML5webtemplates.co.uk</a>
+        </div>
+    </div>
+</body>
+
+</html>

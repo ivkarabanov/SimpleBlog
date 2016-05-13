@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow">
+    <title>Manage Posts, Categories and Tags</title>
+
+    @Styles.Render("~/Content/themes/simple/jquery-ui-1.9.2.custom/css/sunny/bundle", "~/scripts/jquery.jqGrid-4.4.3/css/bundle", "~/Content/themes/simple/admin")
+    @Scripts.Render("~/jquery", "~/jqueryui", "~/scripts/tinymce/js", "~/manage/js")
+</head>
+<body>
+
+    <!-- logout link -->
+    <div style="text-align:right; margin-bottom:5px;">
+        @Html.ActionLink("logout", "Logout")
+    </div>
+
+    <h2>Администрирование</h2>
+
+    <!-- tab control -->
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-posts">Статьи</a></li>
+            <li><a href="#tab-cats">Категории</a></li>
+            <li><a href="#tab-tags">Тэги</a></li>
+        </ul>
+
+        <div id="tab-posts" class="tab">
+            <table id="tablePosts" class="grid"></table>
+            <div id="pagerPosts" class="pager">
+            </div>
+        </div>
+
+        <div id="tab-cats" class="tab">
+            <table id="tableCats" class="grid"></table>
+            <div id="pagerCats" class="pager">
+            </div>
+        </div>
+
+        <div id="tab-tags" class="tab">
+            <table id="tableTags" class="grid"></table>
+            <div id="pagerTags" class="pager">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

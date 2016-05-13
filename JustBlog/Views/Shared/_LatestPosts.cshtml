@@ -1,0 +1,19 @@
+﻿@model IList<JustBlog.Core.Objects.Post>
+
+<div>
+    <h3>Последние статьи</h3>
+
+    @if (Model.Count > 0)
+    {
+        <ul>
+            @foreach (var post in Model)
+            {
+                <li>@Html.PostLink(post)</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Статей не найдено!</p>
+    }
+</div>
